@@ -35,28 +35,28 @@
 			<key>name</key>
 			<string>entity.name.function.xys</string>   <!-- native functions,eg: abs(num) -->
 			<key>match</key>
-			<string>(?i)\b(?:abs|asc|attrstamp|base64decode|base64encode|caller|catalogreport|ceil|cell|chr|colorfilter|columnlayout|compare|confirm|copier|ctbicon|ctbname|ctbstate|datediff|datepicker|eval|exists|extracttext|extratag|filesequal|filesize|filetype|floor|folderreport|foldersize|format|formatbytes|formatdate|formatlist|get|getinfo|getkey|getpathcomponent|getsectionlist|gettoken|gettokenindex|ghost|hash|hexdump|hextodec|html|input|inputfile|inputfolder|inputselect|isset|isunicode|listfolder|listpane|loadlayout|md5|new|now|paperfolder|popupmenu|property|quicksearch|quote|rand|readfile|readurl|recase|regexmatches|regexreplace|renameitem|replace|replacelist|report|resolvepath|round|row|runret|savethumb|self|setcolumns|seticons|setlayout|strlen|strpos|strrepeat|substr|sync|tab|tabset|tagitems|taglist|toolbar|trim|tweak|urldecode|urlencode|utf8decode|utf8encode|writefile|zip_add|zip_extract|zip_list)(?=\s*\()</string>
+			<string>(?i)\b(?:abs|asc|attrstamp|base64decode|base64encode|caller|catalogreport|ceil|cell|chr|colorfilter|columnlayout|compare|confirm|copier|ctbicon|ctbname|ctbstate|datediff|datepicker|eval|exists|extracttext|extratag|filesequal|filesize|filetype|floor|folderreport|foldersize|format|formatbytes|formatdate|formatlist|get|getinfo|getkey|getpathcomponent|getsectionlist|gettoken|gettokenindex|ghost|hash|hexdump|hextodec|html|input|inputfile|inputfolder|inputselect|isset|isunicode|listfolder|listpane|loadlayout|md5|new|now|paperfolder|popupmenu|property|quicksearch|quote|rand|readfile|readurl|recase|regexmatches|regexreplace|renameitem|replace|replacelist|report|resolvepath|round|row|runret|savethumb|self|setcolumns|seticons|setlayout|strlen|strpos|strrepeat|substr|sync|tab|tabset|tagitems|taglist|toolbar|trim|tweak|urldecode|urlencode|utf8decode|utf8encode|writefile|zip_add|zip_extract|zip_list|ageclasses|controlatpos|controlposition|count|dectohex|hex|explode|favs|filetime|flattenfolder|font|gpc|id3tag|implode|indexatpos|itematpos|lax|outputfile|popupnested|posatpos|readurlutf8|searchtemplate|selectthumbs|strreverse|syncselect|tagcheck|tagexport|tagload|tagsave|thumbscacherename|thumbsconf|topindex|view|zip_list2)(?=\s*\()</string>
 		</dict>
 
 		<dict>
 			<key>name</key>
 			<string>entity.name.function.xys</string>  <!-- native commands,eg: beep freq,time -->
 			<key>match</key>
-			<string>(?i)\b(?:assert|backupto|beep|box|br|button|call|catalogload|charview|comparehash|comment|copy|copyas|copydata|copyitem|copytext|copyto|delete|deletefile|download|echo|edittags|end|enumshellfolderitems|error|escapeunicode|exist|exit|filter|focus|fresh|freshhere|global|goto|hashlist|help|highlight|incr|info|internetflags|load|loadsearch|loadtree|logchange|logon|logtofile|makecoffee|moveas|moveto|msecs|msg|open|openwith|perm|popupmainmenu|quickfileview|readpv|releaseglobals|rename|return|rotate|rtfm|run|savesettings|screen|sel|selpos|selectitems|selfilter|seltab|sendkeys|set|setkey|setting|settingp|showhash|showshellprops|snippet|sortby|sound|status|sub|swapnames|sysicons|tag|text|timestamp|unset|unthumb|userbutton|wait|winpos|winsize|wipe|wmcopydata|writepv)(?=\s)</string>
+			<string>(?i)\b(?:assert|backupto|beep|box|br|button|call|catalogload|charview|comparehash|comment|copy|copyas|copydata|copyitem|copytext|copyto|delete|deletefile|download|echo|edittags|end|enumshellfolderitems|error|escapeunicode|exist|exit|filter|focus|fresh|freshhere|global|goto|hashlist|help|highlight|incr|info|internetflags|load|loadsearch|loadtree|logchange|logon|logtofile|makecoffee|moveas|moveto|msecs|msg|open|openwith|perm|popupmainmenu|quickfileview|readpv|releaseglobals|rename|return|rotate|rtfm|run|savesettings|screen|sel|selpos|selectitems|selfilter|seltab|sendkeys|set|setkey|setting|settingp|showhash|showshellprops|snippet|sortby|sound|status|sub|swapnames|sysicons|tag|text|timestamp|unset|unthumb|userbutton|wait|winpos|winsize|wipe|wmcopydata|writepv|appicon|automaxcolumn|autosizecolumns|buttonset|catalogexecute|dark|dlog|editconf|llog|loadsettings|middletruncation|newwindow|obfuscate|pasteto|patchimage|pathreal|pathspecial|popupcontextmenu|popupnativecontextmenu|readonly|readonlyhere|refreshlist|runq|setthumb|shellopen|showintree|showstatus|skipundo|slog|sortbylist|statusbartemplate|trayballoon|update)(?=\s)</string>
 		</dict>
 
 		<dict>
 			<key>name</key>
 			<string>keyword.control.xys</string>
 			<key>match</key>
-			<string>(?i)\b(?:step|unstep|break|continue|while|if|else|elseif|foreach)\b</string>
+			<string>(?i)\b(?:step|unstep|break|continue|while|if|else|elseif|foreach|switch|for)\b</string>
 		</dict>
 
 		<dict>
 			<key>name</key>
 			<string>entity.name.function.CommandID.xys</string>
 			<key>match</key>
-			<string>(?&lt;!\w)#1?\d{3}(?!\w)</string>
+			<string>(?&lt;!\w)#\d{1,4}(?!\w)</string>
 		</dict>
 
 		<dict>
@@ -150,7 +150,7 @@
 			<key>name</key>
 			<string>keyword.operator.xys</string>
 			<key>match</key>
-			<string>([\!)(){},]|[\*\+-\/\^%]|\sUnLikeI?\s|\sLikeI?\s|\sAND\s|\sOR\s|\sXOR\s|\sNOT\s|\s\|\|\s|\B-\B|=|\s+\.\s+|(?&lt;!\w)&gt;|&lt;(?![\w&lt;])|\B&amp;&amp;?\B)</string>
+			<string>(?i)([\!(){},]|[\*\+-\/\^%]|\sUnLikeI?\s|\sLikeI?\s|\sAND\s|\sOR\s|\sXOR\s|\sNOT\s|\s\|\|\s|\B-\B|=|\s+\.\s+|(?&lt;!\w)&gt;|&lt;(?![\w&lt;])|\B&amp;&amp;?\B)</string>
 		</dict>
 
 		<dict>
