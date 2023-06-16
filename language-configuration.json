@@ -13,11 +13,40 @@
     ],
     // symbols that are auto closed when typing
     "autoClosingPairs": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"],
-        ["\"", "\""],
-        ["'", "'"]
+        {
+			"open": "{",
+			"close": "}"
+		},
+		{
+			"open": "[",
+			"close": "]"
+		},
+		{
+			"open": "(",
+			"close": ")"
+		},
+		{
+			"open": "'",
+			"close": "'",
+			"notIn": [
+				"string",
+				"comment"
+			]
+		},
+		{
+			"open": "\"",
+			"close": "\"",
+			"notIn": [
+				"string"
+			]
+		},
+		{
+			"open": "/*",
+			"close": " */",
+			"notIn": [
+				"string"
+			]
+		}
     ],
     // symbols that can be used to surround a selection
     "surroundingPairs": [
@@ -26,5 +55,12 @@
         ["(", ")"],
         ["\"", "\""],
         ["'", "'"]
-    ]
+    ],
+	"wordPattern": {
+		"pattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\$\\^\\&\\*\\(\\)\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:'\"\\,\\.\\<\\>\\/\\s]+)"
+	},
+	"indentationRules": {
+		"increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)|\\s*case\\s([^:\"]+|\".+?\"):$", //workaround for case since switch it's not correctly implemented
+		"decreaseIndentPattern": "^((?!.*?\\/\\*).*\\*\\/)?\\s*[\\)\\}\\]].*$"
+	  }
 }
