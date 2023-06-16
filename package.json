@@ -3,15 +3,15 @@
     "displayName": "XYplorer",
     "description": "XYplorer language support for VS Code",
     "version": "0.2.2",
-    "publisher": "Otiel",
+    "publisher": "1024mb",
     "icon": "icon.png",
-    "homepage": "https://github.com/Otiel/vscode-xyplorer",
+    "homepage": "https://github.com/1024mb/vscode-xyplorer",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Otiel/vscode-xyplorer.git"
+        "url": "https://github.com/1024mb/vscode-xyplorer.git"
     },
     "bugs": {
-        "url": "https://github.com/Otiel/vscode-xyplorer/issues"
+        "url": "https://github.com/1024mb/vscode-xyplorer/issues"
     },
     "license": "See LICENSE file",
     "engines": {
@@ -30,7 +30,7 @@
         "grammars": [{
             "language": "xys",
             "scopeName": "source.xys",
-            "path": "./syntaxes/xys.tmLanguage"
+            "path": "./syntaxes/xys.tmLanguage.json"
         }]
     },
     "galleryBanner": {
