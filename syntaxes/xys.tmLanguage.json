@@ -1,0 +1,171 @@
+{
+	"name": "XYplorer",
+	"scopeName": "source.xys",
+	"fileTypes": [
+		"xys",
+		"xyi",
+		"inc"
+	],
+	"patterns": [
+		{
+			"name": "comment.line.xys",
+			"match": "(?<!tp:)//.*?$"
+		},
+		{
+			"name": "comment.block.xys",
+			"begin": "/\\*",
+			"end": "\\*/"
+		},
+		{
+			"name": "entity.name.function.xys",
+			"match": "(?i)\\b(?:abs|asc|attrstamp|base64decode|base64encode|caller|catalogreport|ceil|cell|chr|colorfilter|columnlayout|compare|confirm|copier|ctbicon|ctbname|ctbstate|datediff|datepicker|eval|exists|extracttext|extratag|filesequal|filesize|filetype|floor|folderreport|foldersize|format|formatbytes|formatdate|formatlist|get|getinfo|getkey|getpathcomponent|getsectionlist|gettoken|gettokenindex|ghost|hash|hexdump|hextodec|html|input|inputfile|inputfolder|inputselect|isset|isunicode|listfolder|listpane|loadlayout|md5|new|now|paperfolder|popupmenu|property|quicksearch|quote|rand|readfile|readurl|recase|regexmatches|regexreplace|renameitem|replace|replacelist|report|resolvepath|round|row|runret|savethumb|self|setcolumns|seticons|setlayout|strlen|strpos|strrepeat|substr|sync|tab|tabset|tagitems|taglist|toolbar|trim|tweak|urldecode|urlencode|utf8decode|utf8encode|writefile|zip_add|zip_extract|zip_list|ageclasses|controlatpos|controlposition|count|dectohex|hex|explode|favs|filetime|flattenfolder|font|gpc|id3tag|implode|indexatpos|itematpos|lax|outputfile|popupnested|posatpos|readurlutf8|searchtemplate|selectthumbs|strreverse|syncselect|tagcheck|tagexport|tagload|tagsave|thumbscacherename|thumbsconf|topindex|view|zip_list2)(?=\\s*\\()"
+		},
+		{
+			"name": "entity.name.function.xys",
+			"match": "(?i)\\b(?:assert|backupto|beep|box|br|button|call|catalogload|charview|comparehash|comment|copy|copyas|copydata|copyitem|copytext|copyto|delete|deletefile|download|echo|edittags|end|enumshellfolderitems|error|escapeunicode|exit|filter|focus|fresh|freshhere|global|goto|hashlist|help|highlight|incr|info|internetflags|load|loadsearch|loadtree|logchange|logon|logtofile|makecoffee|moveas|moveto|msecs|msg|open|openwith|perm|popupmainmenu|quickfileview|readpv|releaseglobals|rename|return|rotate|rtfm|run|savesettings|screen|sel|selpos|selectitems|selfilter|seltab|sendkeys|set|setkey|setting|settingp|showhash|showshellprops|snippet|sortby|sound|status|sub|swapnames|sysicons|tag|text|timestamp|unset|unthumb|userbutton|wait|winpos|winsize|wipe|wmcopydata|writepv|appicon|automaxcolumn|autosizecolumns|buttonset|catalogexecute|dark|dlog|editconf|llog|loadsettings|middletruncation|newwindow|obfuscate|pasteto|patchimage|pathreal|pathspecial|popupcontextmenu|popupnativecontextmenu|readonly|readonlyhere|refreshlist|runq|setthumb|shellopen|showintree|showstatus|skipundo|slog|sortbylist|statusbartemplate|trayballoon|update)(?=\\s)"
+		},
+		{
+			"name": "keyword.control.xys",
+			"match": "(?i)\\b(?:step|unstep|break|continue|while|if|else|elseif|foreach|switch|for)\\b"
+		},
+		{
+			"name": "entity.name.function.CommandID.xys",
+			"match": "(?<!\\w)#\\d{1,4}(?!\\w)"
+		},
+		{
+			"match": "(?i)^\\s*(include(?:_once)?)\\s+(\"[^\"]+\"|'[^']+'|(?!\"|')[^;]+(?!\"|'));?\\s*",
+			"captures": {
+				"1": {
+					"name": "keyword.control.xys"
+				},
+				"2": {
+					"name": "string.other.INC.xys"
+				},
+				"3": {
+					"name": "comment.line.xys"
+				}
+			}
+		},
+		{
+			"comment": "namespace definition",
+			"match": "(?i)^\\s*(namespace)\\s+(\\w+)$",
+			"captures": {
+				"1": {
+					"name": "keyword.control.xys"
+				},
+				"2": {
+					"name": "meta.class.NS.xys"
+				}
+			}
+		},
+		{
+			"comment": "User-Defined function declaration",
+			"match": "(?i)^\\s*(function)\\s+(\\w+)(?=\\s*\\()",
+			"captures": {
+				"1": {
+					"name": "keyword.control.xys"
+				},
+				"2": {
+					"name": "meta.class.UDF.xys"
+				}
+			}
+		},
+		{
+			"name": "variable.parameter.xys",
+			"match": "\\|:\\w+|(?i)\\$[a-z_]\\w*|\\{:(Text|Image|Photo|Audio|Video|Media|Font|Vector|Web|Office|Archive|Executable)\\}"
+		},
+		{
+			"name": "variable.parameter.native.xys",
+			"match": "(?i)<[ .,\\*\\|\\#\\:\\-\\+\\w]+>|%[\\w-]+%"
+		},
+		{
+			"name": "constant.numeric.xys",
+			"match": "(?<=^|[\\s(,=<>/;%^+!&|\\-\\*\\\\])((?:-|\\+)?)(?:\\d+\\.\\d+)|(?:\\.?\\d+)"
+		},
+		{
+			"name": "keyword.operator.xys",
+			"match": "(?i)([\\!(){},]|[\\*\\+-\\/\\^%]|\\sUnLikeI?\\s|\\sLikeI?\\s|\\sAND\\s|\\sOR\\s|\\sXOR\\s|\\sNOT\\s|\\s\\|\\|\\s|\\B-\\B|=|\\s+\\.\\s+|(?<!\\w)>|<(?![\\w<])|\\B&&?\\B)"
+		},
+		{
+			"comment": "scope out unrecog functions to allow ctxhelp goto def",
+			"match": "\\b(?:(\\w+)::)?(\\w+)(?=\\s*\\()",
+			"captures": {
+				"1": {
+					"name": "entity.name.section.NS.xys"
+				},
+				"2": {
+					"name": "entity.name.function.UDF.xys"
+				}
+			}
+		},
+		{
+			"name": "string.unquoted.nowdoc.xys",
+			"begin": "<{3}#'(.*)'$",
+			"end": "#\\1"
+		},
+		{
+			"name": "string.unquoted.nowdoc.xys",
+			"begin": "<{3}'([^#].*)'$",
+			"end": "^\\1;?$"
+		},
+		{
+			"name": "string.unquoted.heredoc.xys",
+			"begin": "<{3}(#.*)$",
+			"end": "\\1",
+			"patterns": [
+				{
+					"name": "variable.parameter.xys",
+					"match": "(?i)\\$[a-z_]\\w*"
+				},
+				{
+					"name": "variable.parameter.native.xys",
+					"match": "(?i)<[ .,\\*\\|\\#\\:\\-\\+\\w]+>|%[\\w-]+%"
+				}
+			]
+		},
+		{
+			"name": "string.unquoted.heredoc.xys",
+			"begin": "<{3}([^#](.*))$",
+			"end": "^\\1;?$",
+			"patterns": [
+				{
+					"name": "variable.parameter.xys",
+					"match": "(?i)\\$[a-z_]\\w*"
+				},
+				{
+					"name": "variable.parameter.native.xys",
+					"match": "(?i)<[ .,\\*\\|\\#\\:\\-\\+\\w]+>|%[\\w-]+%"
+				}
+			]
+		},
+		{
+			"begin": "(\"|'|\"\")",
+			"beginCaptures": {
+				"1": {
+					"name": "string.quoted.xys"
+				}
+			},
+			"end": "(\\1)\\1{0}",
+			"endCaptures": {
+				"1": {
+					"name": "string.quoted.xys"
+				}
+			},
+			"name": "string.quoted.xys",
+			"patterns": [
+				{
+					"name": "variable.parameter.xys",
+					"match": "\\|:\\w+|(?i)\\$[a-z_]\\w*"
+				},
+				{
+					"name": "variable.parameter.native.xys",
+					"match": "<[ .,\\*\\|\\#\\:\\-\\+\\w]+>|[ .,\\*\\|\\#\\:\\-\\+\\w]+<(crlf|clp)>>|%[A-Za-z0-9()_-]+%"
+				},
+				{
+					"name": "entity.name.function.CommandID.xys",
+					"match": "(?<!\\w)#1?\\d{3}(?!\\w)"
+				}
+			]
+		}
+	]
+}
