@@ -60,7 +60,7 @@
 		"pattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\$\\^\\&\\*\\(\\)\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:'\"\\,\\.\\<\\>\\/\\s]+)"
 	},
 	"indentationRules": {
-		"increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)|\\s*case\\s([^:\"]+|\".+?\"):$", //workaround for case since switch it's not correctly implemented
+		"increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)|\\s*case\\s([^:\"]+|\".+?\"):$)", //workaround for case since switch it's not correctly implemented
 		"decreaseIndentPattern": "^((?!.*?\\/\\*).*\\*\\/)?\\s*[\\)\\}\\]].*$"
 	  }
 }
